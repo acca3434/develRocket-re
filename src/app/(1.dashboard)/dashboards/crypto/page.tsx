@@ -1,11 +1,11 @@
-"use client"
+'use client';
 
-import { useParams } from "next/navigation"
+import { useParams } from 'next/navigation';
 
 const DashboardMain = () => {
-    const a = useParams()
-    console.log(a, "a")
+  const a = useParams();
+  console.log(a, 'a');
 
-    return <>dashboardMain </>
-}
-export default DashboardMain
+  return <>dashboardMain </>;
+};
+export default DashboardMain;
