@@ -14,18 +14,16 @@ export const courseInfoItems = {
     list: [
         {
             label: "승인 과정 관리",
-            // path: "/courseInfo/list",
-            path: "",
+            path: "/courseInfo/list",
         },
         {
             label: "개설 과정 관리",
-            // path: "/coursemanagement/list",
-            path: "",
+            path: "/coursemanagement/list",
         },
         {
             label: "기관 휴일 관리",
-            // path: `/holidays/list/${year}`,
-            path: "",
+            path: `/holidays/list/${year}`,
+            // path: "",
         },
     ],
 }

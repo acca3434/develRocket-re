@@ -10,7 +10,7 @@ interface SideMenuItems {
     list: ListItem[]
 }
 
-interface ListItem {
+export interface ListItem {
     label: string
     path: string
 }
@@ -18,8 +18,8 @@ interface ListItem {
 export const SideMenu: React.FC<SideMenuProps> = ({ item: { list, category }, pathName }) => {
     return (
         <div className="text-white ">
-            {category && <div className="py-5 font-bold text-xs ">{category}</div>}
-            <ul className="flex flex-col ">
+            {category && <div className="py-5 text-xs ">{category}</div>}
+            <ul className="flex flex-col">
                 {list.map((v, i) => (
                     <Link
                         href={v.path}

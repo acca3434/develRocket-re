@@ -38,15 +38,15 @@ export const community = {
     category: "커뮤니티",
     list: [
         {
-            label: "커뮤니티",
+            label: "공지사항 관리",
             path: "",
         },
         {
-            label: "학습 평가 목록",
+            label: "문의사항 관리",
             path: "",
         },
         {
-            label: "학습 평가 목록",
+            label: "Q&A",
             path: "",
         },
     ],
