@@ -40,6 +40,7 @@ const ButtonVariant = (varType: string) => {
 type ButtonProps = {
   isLoading?: boolean;
   disabled?: boolean;
+
   variant?:
     | 'primary'
     | 'cencel'
@@ -49,17 +50,19 @@ type ButtonProps = {
     | 'success';
   title?: string;
   onClick?: () => void;
+  type?: 'button' | 'submit';
 };
 // cn 사용법
 // https://github.com/acca3434/tailwindnextjs/blob/main/src/app/lib/README.md
 const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   title = '거래하기',
+  type = 'submit',
   onClick,
 }) => {
   return (
     <button
-      type="button"
+      type={type}
       className={cn(
         'inline-flex items-center justify-center rounded-md px-[15px] text-sky-500 shadow ring-1 ring-slate-900/10 transition duration-150 ease-in-out',
         ButtonVariant(variant)

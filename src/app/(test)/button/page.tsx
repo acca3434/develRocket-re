@@ -4,7 +4,7 @@ import { PagesTitle } from '@/app/_components/(ui)/pagesTitle';
 import { BoxWrap } from '@/app/_components/(wrapper)/BoxWrap';
 import { PageWrap } from '@/app/_components/(wrapper)/PageWrap';
 
-export default function CourseInfoList() {
+export default function ButtonTest() {
   const handleRouter = () => {
     console.log('버튼이당');
   };
