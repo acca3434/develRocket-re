@@ -10,8 +10,8 @@ export const PageNation = () => {
             <SelectComp />
             <div className="mr-[10px]">{"1-2 of 2"}</div>
             <div className="flex justify-center items-center">
-                <Arrow rotate={"90"} color={"#000"} />
-                <Arrow rotate={"270"} color={"#000"} onClick={() => console.log(1)} />
+                <Arrow rotate={"90"} color={"#223354"} />
+                <Arrow rotate={"270"} color={"#223354"} onClick={() => console.log(1)} />
             </div>
         </div>
     )
