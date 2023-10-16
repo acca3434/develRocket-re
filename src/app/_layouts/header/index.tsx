@@ -11,7 +11,7 @@ export default function Header() {
 
     return (
         <>
-            <div className="w-full h-[80px] bg-slate-50 flex justify-between">
+            <div className="w-full h-[80px] sticky top-0 bg-slate-50 flex justify-between">
                 <div className="flex items-center ml-[50px]">
                     {items.map((v, i) => (
                         <div

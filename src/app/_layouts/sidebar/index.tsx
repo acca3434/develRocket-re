@@ -18,10 +18,10 @@ export default function SideBar() {
     const allMenuItem = [menuItems, courseInfoItems, courseManagementItems, contentManagementItems, jobManagement]
 
     return (
-        <div className="h-screen w-[290px] flex-shrink-0 bg-[#11192a]">
+        <div className=" w-[290px] flex-shrink-0 bg-[#11192a]">
             <div className="p-5 pt-7">
                 <Link href={"/dashboards/crypto"}>
-                    <Image src="/img/block_logo.png" alt="Develrocket LOGO" width={300} height={200} />
+                    <Image src="/img/block_logo.png" alt="Develrocket LOGO" width={300} height={200} priority={true} />
                 </Link>
                 <div className="pt-[27px] pb-[18px]">
                     <WhiteLine />
