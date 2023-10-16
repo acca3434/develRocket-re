@@ -12,7 +12,17 @@ export default function CourseInfoList() {
     <>
       <PagesTitle title={'버튼 모음'} />
       <PageWrap>
-        <BoxWrap title={'버튼 모음'} footer={true}>
+        <BoxWrap
+          title={'버튼 모음'}
+          footer={true}
+          footerItem={
+            <Button
+              variant={'primary'}
+              title={'+ 레벨테스트 추가'}
+              onClick={handleRouter}
+            />
+          }
+        >
           <Button
             variant={'primary'}
             title={'+ 레벨테스트 추가'}
