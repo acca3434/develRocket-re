@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { cn } from '@/app/_lib/utils';
 // const ButtonVariant = (color: string, varType: string) => {
@@ -19,7 +18,6 @@ const ButtonVariant = (varType: string) => {
       `hover:bg-[#FFFFFF] hover:text-[#FF5555]`,
       `active:bg-[#FF5555] active:text-[#FFFFFF]`,
     ],
-
     purple: [
       `bg-[#7800D7] text-[#FFFFFF]`,
       `hover:bg-[#FFFFFF] hover:text-[#7800D7]`,
@@ -48,14 +46,16 @@ type ButtonProps = {
     | 'delete'
     | 'purple'
     | 'fileChoise'
-    | 'success'; // 'variant'를 고정된 문자열로 설정
+    | 'success';
   title?: string;
+  onClick?: () => void;
 };
 // cn 사용법
 // https://github.com/acca3434/tailwindnextjs/blob/main/src/app/lib/README.md
 const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   title = '거래하기',
+  onClick,
 }) => {
   return (
     <button
@@ -64,6 +64,7 @@ const Button: React.FC<ButtonProps> = ({
         'inline-flex items-center justify-center rounded-md px-[15px] text-sky-500 shadow ring-1 ring-slate-900/10 transition duration-150 ease-in-out',
         ButtonVariant(variant)
       )}
+      onClick={onClick}
     >
       <h2 className={cn(`text-center font-inter font-bold text-sm/[40px]`)}>
         {title}
