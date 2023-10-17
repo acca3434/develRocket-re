@@ -34,3 +34,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+persist 를 세션스토리지에 넣어서 날라가지 않는지 확인 // 브라우저 껐을 때 날라가는지도
+쿠키를 세션으로 처리하는 방법.. 브라우저가 꺼지면 날라감.
+
+로그인을 했을 때 = 리플레시, 엑세스로 다른곳에 요청
+
+ssr에서 "쿠키"를 가져올 ㅅ ㅜ있는지?
+
+가져왔을 떄 쿠키가 만료됐ㅇ르 경우와 아닌 경우 를 나눠서
+
+만료되면 redirect 
