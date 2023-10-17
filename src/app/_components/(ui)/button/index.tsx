@@ -1,5 +1,5 @@
 import React from 'react';
-import { cn } from '@/app/_util/clsx/utils';
+import { cn } from '@/app/_utils/clsx/utils';
 // const ButtonVariant = (color: string, varType: string) => {
 const ButtonVariant = (varType: string) => {
   const variant: Record<string, string[]> = {
@@ -69,7 +69,9 @@ const Button: React.FC<ButtonProps> = ({
       )}
       onClick={onClick}
     >
-      <h2 className={cn(`text-center font-inter font-bold text-sm/[40px]`)}>
+      <h2
+        className={cn(`w-20 text-center font-inter font-bold text-sm/[40px]`)}
+      >
         {title}
       </h2>
     </button>

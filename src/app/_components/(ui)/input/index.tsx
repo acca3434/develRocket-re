@@ -1,10 +1,11 @@
+'use client';
 import React, {
   ChangeEvent,
   useState,
   useEffect,
   HTMLInputTypeAttribute,
 } from 'react';
-import { cn } from '@/app/_util/clsx/utils';
+import { cn } from '@/app/_utils/clsx/utils';
 import {
   ConvertSizeType,
   convertHeightClass,
@@ -14,7 +15,7 @@ export type InputType = HTMLInputTypeAttribute | undefined;
 export type InputValueType = string | number;
 
 const InputLabelAnimation = (varType: boolean) =>
-  varType ? 'bottom-[43px] left-2 text-sm' : 'bottom-4 left-3 text-base';
+  varType ? 'bottom-[52px] left-2 text-sm' : 'bottom-4 left-3 text-base';
 
 type TextInputProps = {
   readOnly?: boolean;
@@ -22,9 +23,8 @@ type TextInputProps = {
   width?: keyof ConvertSizeType;
   height?: keyof ConvertSizeType;
   type?: InputType;
-  defaultValue?: InputValueType;
-  value: string | number | undefined;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  value?: string | number | undefined;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -35,10 +35,6 @@ const TextInput: React.FC<TextInputProps> = ({
   onChange,
   value,
 }) => {
-  const [defaultValue, setDefaultValue] = useState<InputValueType>(
-    value !== undefined ? value : ''
-  );
-
   const [labelFocused, setLabelFocused] = useState(false);
   const [labelPosition, setLabelPosition] = useState(
     InputLabelAnimation(labelFocused)
@@ -50,14 +46,14 @@ const TextInput: React.FC<TextInputProps> = ({
     }
   };
   useEffect(() => {
-    const hasValue = defaultValue !== '';
+    const hasValue = value !== '';
     if (hasValue && !labelFocused) {
       setLabelPosition(InputLabelAnimation(true));
     }
     if (!hasValue && labelFocused) {
       setLabelPosition(InputLabelAnimation(true));
     }
-  }, [defaultValue, labelFocused]);
+  }, [value, labelFocused]);
 
   return (
     <div className="relative">
@@ -69,9 +65,8 @@ const TextInput: React.FC<TextInputProps> = ({
           convertHeightClass(height as keyof ConvertSizeType)
         )}
         type={type}
-        defaultValue={defaultValue}
         value={value}
-        onChange={(e) => onChange(e)}
+        onChange={(e) => onChange && onChange(e)}
         onFocus={() => setLabelFocused(true)}
         onBlur={handleBlur}
       />
