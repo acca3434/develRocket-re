@@ -40,7 +40,7 @@ export const UnCheckRadio: React.FC<RadioGroupProps> = ({ label }) => {
           viewBox="0 0 22 22"
           fill="none"
         >
-          <circle cx="11" cy="11" r="10" stroke="#888888" stroke-width="2" />
+          <circle cx="11" cy="11" r="10" stroke="#888888" strokeWidth="2" />
         </svg>
         <label>{label}</label>
       </div>

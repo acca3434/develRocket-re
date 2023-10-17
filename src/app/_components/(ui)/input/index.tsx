@@ -18,13 +18,14 @@ const InputLabelAnimation = (varType: boolean) =>
   varType ? 'bottom-[52px] left-2 text-sm' : 'bottom-4 left-3 text-base';
 
 type TextInputProps = {
+  name?: string;
   readOnly?: boolean;
   label?: string;
   width?: keyof ConvertSizeType;
   height?: keyof ConvertSizeType;
   type?: InputType;
   value?: string | number | undefined;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -32,9 +33,13 @@ const TextInput: React.FC<TextInputProps> = ({
   type = 'text',
   width = '25%',
   height = '25%',
+  name = '',
   onChange,
   value,
 }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange && onChange(e);
+  };
   const [labelFocused, setLabelFocused] = useState(false);
   const [labelPosition, setLabelPosition] = useState(
     InputLabelAnimation(labelFocused)
@@ -65,14 +70,15 @@ const TextInput: React.FC<TextInputProps> = ({
           convertHeightClass(height as keyof ConvertSizeType)
         )}
         type={type}
+        name={name}
         value={value}
-        onChange={(e) => onChange && onChange(e)}
+        onChange={handleChange}
         onFocus={() => setLabelFocused(true)}
         onBlur={handleBlur}
       />
       <label
         className={cn(
-          'absolute bg-white px-1 text-gray-500 transition-all',
+          'absolute bg-white px-1 text-gray-500 transition-all pointer-events-none',
           labelPosition
         )}
       >

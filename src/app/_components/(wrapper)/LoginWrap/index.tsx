@@ -1,7 +1,6 @@
 import { BlackLine } from '../../(icon)/Line';
 
 interface LoginWrapFooterTrue {
-  title: string;
   footer: true;
   footerItem?: React.ReactNode;
   href?: string;
@@ -9,7 +8,6 @@ interface LoginWrapFooterTrue {
   children?: React.ReactNode;
 }
 interface LoginWrapFooterFasle {
-  title: string;
   footer: false;
   href?: string;
   linkLabel?: string;
