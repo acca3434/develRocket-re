@@ -64,7 +64,7 @@ const TextInput: React.FC<TextInputProps> = ({
     <div className="relative">
       <input
         className={cn(
-          'border border-gray-300 p-3 rounded-md shadow-sm',
+          'border border-gray-300 p-3 rounded-[8px] shadow-sm',
           'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent',
           convertWidthClass(width as keyof ConvertSizeType),
           convertHeightClass(height as keyof ConvertSizeType)

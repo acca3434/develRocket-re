@@ -16,7 +16,7 @@ interface LoginHeaderProps {
 
 const backgroundConvertColor = (bgColor: keyof LoginHeaderColorType) => {
   const LoginColorVariants: LoginHeaderColorType = {
-    white: '#FFFFFF',
+    white: 'bg-[#FFFFFF]',
     primary: 'bg-[#5569ff]',
   };
   console.log();

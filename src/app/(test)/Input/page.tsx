@@ -25,7 +25,6 @@ export default function InputTest() {
             type={'text'}
             label={'훈련 비용'}
             width={'25%'}
-            defaultValue={2}
             onChange={handleValue}
             value={value}
           />
