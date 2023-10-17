@@ -6,7 +6,8 @@ type FormValues<T> = {
 type UseFormReturnType<T> = [
   FormValues<T>,
   (e: ChangeEvent<HTMLInputElement>) => void,
-  () => void
+  () => void,
+  (e: ChangeEvent<HTMLTextAreaElement>) => void
 ];
 
 export const useForm = <T extends Record<string, string | number>>(
@@ -26,6 +27,14 @@ export const useForm = <T extends Record<string, string | number>>(
   const resetForm = () => {
     setFormValues(initialValues);
   };
+  const handleInputAreaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    const newValue = initialValues[name] === 'number' ? Number(value) : value;
+    setFormValues((prevFormValues) => ({
+      ...prevFormValues,
+      [name]: newValue,
+    }));
+  };
 
-  return [formValues, handleInputChange, resetForm];
+  return [formValues, handleInputChange, resetForm, handleInputAreaChange];
 };
