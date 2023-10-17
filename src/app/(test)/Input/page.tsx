@@ -1,6 +1,6 @@
 'use client';
-import Button from '@/app/_components/(ui)/button';
-import Input, { InputValueType } from '@/app/_components/(ui)/input';
+import Button from '@/app/_components/(icon)/Button';
+import Input, { InputValueType } from '@/app/_components/(icon)/Input';
 import { PagesTitle } from '@/app/_components/(ui)/pagesTitle';
 import { BoxWrap } from '@/app/_components/(wrapper)/BoxWrap';
 import { PageWrap } from '@/app/_components/(wrapper)/PageWrap';

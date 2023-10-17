@@ -1,6 +1,6 @@
 'use client';
-import Button from '@/app/_components/(ui)/button';
-import FileButton from '@/app/_components/(ui)/button/FileButton';
+import Button from '@/app/_components/(icon)/Button';
+import FileButton from '@/app/_components/(icon)/Button/FileButton';
 import { PagesTitle } from '@/app/_components/(ui)/pagesTitle';
 import { BoxWrap } from '@/app/_components/(wrapper)/BoxWrap';
 import { PageWrap } from '@/app/_components/(wrapper)/PageWrap';

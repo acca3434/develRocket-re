@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CloudVariant } from '../../(ui)/button/FileButton';
+import { CloudVariant } from '../Button/FileButton';
 
 interface CloudProps {
   color?: string;

@@ -11,6 +11,7 @@ import {
   convertHeightClass,
   convertWidthClass,
 } from './ConvertSize';
+
 export type InputType = HTMLInputTypeAttribute | undefined;
 export type InputValueType = string | number;
 

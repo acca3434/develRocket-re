@@ -1,6 +1,6 @@
 'use client';
-import Button from '@/app/_components/(ui)/button';
-import TextInput from '@/app/_components/(ui)/input';
+import Button from '@/app/_components/(icon)/Button';
+import TextInput from '@/app/_components/(icon)/Input';
 import LoginTitle from '@/app/_components/(ui)/loginTitle';
 import { LoginWrap } from '@/app/_components/(wrapper)/LoginWrap';
 import CheckBox from '@/app/_components/(icon)/CheckBox';

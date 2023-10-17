@@ -1,9 +1,9 @@
 import React from 'react';
 import { HTMLInputTypeAttribute } from 'react';
 import { cn } from '@/app/_utils/clsx/utils';
-import CloudUploadIcon from '../../(icon)/Icon/CloudUploadIcon';
-import { ButtonVariant } from '.';
+import CloudUploadIcon from '../Icon/CloudUploadIcon';
 import { Wrap } from './Wrap';
+import { ButtonVariant } from '.';
 export const CloudVariant = (varType: string) => {
   const variant: Record<string, string> = {
     white: '#FFFFFF',
