@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 
 const DashboardMain = () => {
     const course_id = "DES-101"
-
     return (
         <>
             <PagesTitle title={"대시보드"} />

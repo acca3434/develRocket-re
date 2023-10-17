@@ -5,3 +5,9 @@
 html {
     color: #223354;
 }
+th {
+    font-weight: bold;
+}
+td {
+    font-weight: 400;
+}
