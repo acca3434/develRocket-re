@@ -1,14 +1,13 @@
 import React from 'react';
-import { cn } from '@/app/_util/clsx/utils';
-// const ButtonVariant = (color: string, varType: string) => {
-const ButtonVariant = (varType: string) => {
+import { cn } from '@/app/_utils/clsx/utils';
+export const ButtonVariant = (varType: string) => {
   const variant: Record<string, string[]> = {
     primary: [
       `bg-[#5569FF] text-[#FFFFFF]`,
       `hover:bg-[#FFFFFF] hover:text-[#5569FF]`,
       `active:bg-[#5569FF] active:text-[#FFFFFF]`,
     ],
-    cencel: [
+    cancel: [
       `bg-[#6E759F] text-[#FFFFFF]`,
       `hover:bg-[#FFFFFF] hover:text-[#6E759F]`,
       `active:bg-[#6E759F] active:text-[#FFFFFF]`,
@@ -43,7 +42,7 @@ type ButtonProps = {
 
   variant?:
     | 'primary'
-    | 'cencel'
+    | 'cancel'
     | 'delete'
     | 'purple'
     | 'fileChoise'
@@ -64,12 +63,17 @@ const Button: React.FC<ButtonProps> = ({
     <button
       type={type}
       className={cn(
-        'inline-flex items-center justify-center rounded-md px-[15px] text-sky-500 shadow ring-1 ring-slate-900/10 transition duration-150 ease-in-out',
+        'inline-flex items-center justify-center rounded-md px-[15px]',
+        'text-sky-500 shadow ring-1 ring-slate-900/10 transition duration-150 ease-in-out',
         ButtonVariant(variant)
       )}
       onClick={onClick}
     >
-      <h2 className={cn(`text-center font-inter font-bold text-sm/[40px]`)}>
+      <h2
+        className={cn(
+          `w-full text-center font-inter font-bold text-base/[40px] whitespace-nowrap`
+        )}
+      >
         {title}
       </h2>
     </button>
@@ -77,23 +81,3 @@ const Button: React.FC<ButtonProps> = ({
 };
 
 export default Button;
-// // const ButtonSize = (sizeType: string, p: number) => {
-// const ButtonSize = (sizeType: string) => {
-//   const size: Record<string, string[]> = {
-//     default: [''],
-//     custom: [''],
-//   };
-//   return size[sizeType];
-// };
-
-// type ButtonProps = {
-//   isLoading?: boolean;
-//   isDarkBg?: boolean;
-//   disabled?: boolean;
-//   variant?: 'primary' | 'outline' | 'ghost' | 'light' | 'dark'; // 'variant'를 고정된 문자열로 설정
-//   color?: string;
-//   size?: 'default' | 'custom';
-//   title?: string;
-//   px?: string;
-//   p?: number;
-// };

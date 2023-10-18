@@ -1,6 +1,6 @@
 'use client';
-import Button from '@/app/_components/(ui)/button';
-import Input, { InputValueType } from '@/app/_components/(ui)/input';
+import Button from '@/app/_components/(icon)/Button';
+import Input, { InputValueType } from '@/app/_components/(icon)/Input';
 import { PagesTitle } from '@/app/_components/(ui)/pagesTitle';
 import { BoxWrap } from '@/app/_components/(wrapper)/BoxWrap';
 import { PageWrap } from '@/app/_components/(wrapper)/PageWrap';
@@ -24,33 +24,14 @@ export default function InputTest() {
           <Input
             type={'text'}
             label={'훈련 비용'}
-            width={'25%'}
-            defaultValue={2}
+            width={'50%'}
+            height={'100%'}
             onChange={handleValue}
             value={value}
+            id={'user_id'}
           />
         </BoxWrap>
       </PageWrap>
     </>
   );
 }
-
-{
-  /* <form onSubmit={(e) => onsubmit(e)}>
-</form> */
-}
-
-// // const onsubmit = (e: FormEvent<HTMLFormElement>,type:InputType) => {
-//   const onsubmit = (e: FormEvent<HTMLFormElement>) => {
-//     e.preventDefault();
-
-//     const inputElements = e.currentTarget.querySelectorAll('input[type="text"]');
-
-//     const inputValues = Array.from(inputElements).map((inputElement: Element) => {
-//       if (inputElement instanceof HTMLInputElement) {
-//         return inputElement.value;
-//       }
-//       return '';
-//     });
-//     console.log('입력된 값들:', inputValues);
-//   };

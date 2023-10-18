@@ -1,6 +1,5 @@
 'use client';
 import Button from '@/app/_components/(icon)/Button';
-import TextInput from '@/app/_components/(icon)/Input';
 import LoginTitle from '@/app/_components/(ui)/loginTitle';
 import { LoginWrap } from '@/app/_components/(wrapper)/LoginWrap';
 import CheckBox from '@/app/_components/(icon)/CheckBox';
@@ -8,16 +7,17 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { CheckRadio, UnCheckRadio } from '@/app/_components/(icon)/Radio';
 import { useForm } from '@/app/_utils/useForm';
+import TextArea from '@/app/_components/(icon)/TextArea';
 export default function LoginMain() {
   const [isChecked, setIsChecked] = useState(false);
-  const [formValues, handleChange, resetForm] = useForm({
+  const [formValues, handleChange, resetForm, handleTextAreaChange] = useForm({
     user_id: '',
-    user_pw: '',
   });
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { user_id, user_pw } = e.target as HTMLFormElement;
-    console.log(user_id.value, user_pw.value);
+    const { user_id } = e.target as HTMLFormElement;
+    console.log(user_id.value);
   };
   const handleCheckBoxClick = () => {
     setIsChecked(!isChecked);
@@ -42,7 +42,7 @@ export default function LoginMain() {
         bgColor={'white'}
         title={
           <h3 className={'text-2xl font-NanumGothic font-bold'}>
-            로그인 이후 이용해주세요
+            텍스트 에어리어 테스트 중
           </h3>
         }
       />
@@ -62,22 +62,16 @@ export default function LoginMain() {
               }
             >
               <div className={'flex flex-col gap-[20px]'}>
-                <TextInput
-                  label={'아이디를 입력해주세요'}
-                  width={'100%'}
-                  height={'60px'}
+                <TextArea
                   value={formValues?.user_id}
+                  label={'훈련 내용을 입력하세요'}
+                  rows={4}
+                  cols={53}
                   name={'user_id'}
-                  onChange={handleChange}
+                  id={'userId'}
+                  onChange={handleTextAreaChange}
                 />
-                <TextInput
-                  label={'비밀번호를 입력해주세요'}
-                  width={'100%'}
-                  height={'60px'}
-                  value={formValues?.user_pw}
-                  name={'user_pw'}
-                  onChange={handleChange}
-                />
+
                 <div className={'flex justify-between'}>
                   <CheckBox isChecked={isChecked} onClick={handleCheckBoxClick}>
                     로그인 저장
@@ -94,15 +88,4 @@ export default function LoginMain() {
       </form>
     </>
   );
-
-// import { cookies } from "next/headers"
-// import LoginForm from "./LoginForm"
-
-// export default function Login() {
-//     // console.log(cookies(), 11)
-//     return (
-//         <>
-//             <LoginForm />
-//         </>
-//     )
 }
