@@ -4,5 +4,6 @@ const nextConfig = {
     domains: ['www.kiweb.or.kr'],
   },
 };
+    // skipMiddlewareUrlNormalize: true,
 
 module.exports = nextConfig;
