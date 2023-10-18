@@ -9,7 +9,7 @@ type TextAreaProps = {
   readOnly?: boolean;
   label?: string;
   value?: string | number | undefined;
-  placeholder?: string;
+  id?: string;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
@@ -19,7 +19,8 @@ const TextArea: React.FC<TextAreaProps> = ({
   name = '',
   onChange,
   value,
-  placeholder = '입력창을 입력하세요',
+  id = '',
+  label = '',
 }) => {
   const handleOnFocusTextarea: FocusEventHandler<HTMLTextAreaElement> = (e) => {
     onChange && onChange(e);
@@ -29,16 +30,31 @@ const TextArea: React.FC<TextAreaProps> = ({
     <div className="relative">
       <textarea
         className={cn(
-          'border border-gray-300 p-3 rounded-[8px] shadow-sm',
-          'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+          'border py-1 border-gray-300 p-3 rounded-[8px] shadow-sm',
+          'peer transition-colors focus:border-2 focus:border-[#5569FF]',
+          `${value ? 'border-[#5569FF] border-2 transition-colors' : ''}`
         )}
         rows={rows}
         cols={cols}
+        id={id}
         name={name}
         value={value}
         onChange={handleOnFocusTextarea}
-        placeholder={placeholder}
       />
+      <label
+        className={cn(
+          'absolute left-2 top-3 cursor-text transition-all',
+          'peer-focus:-top-2 peer-focus:left-3 peer-focus:w-fit peer-focus:bg-white peer-focus:text-[14px] peer-focus:text-[#5569FF]',
+          `${
+            value
+              ? '-top-2 left-3 w-fit bg-white text-[14px] text-[#5569FF]'
+              : ''
+          }`
+        )}
+        htmlFor={id}
+      >
+        {label}
+      </label>
     </div>
   );
 };

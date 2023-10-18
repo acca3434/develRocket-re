@@ -1,10 +1,5 @@
 'use client';
-import React, {
-  ChangeEvent,
-  useState,
-  useEffect,
-  HTMLInputTypeAttribute,
-} from 'react';
+import React, { HTMLInputTypeAttribute } from 'react';
 import { cn } from '@/app/_utils/clsx/utils';
 import {
   ConvertSizeType,
@@ -15,9 +10,6 @@ import {
 export type InputType = HTMLInputTypeAttribute | undefined;
 export type InputValueType = string | number;
 
-const InputLabelAnimation = (varType: boolean) =>
-  varType ? 'bottom-[52px] left-2 text-sm' : 'bottom-4 left-3 text-base';
-
 type TextInputProps = {
   name?: string;
   readOnly?: boolean;
@@ -25,6 +17,7 @@ type TextInputProps = {
   width?: keyof ConvertSizeType;
   height?: keyof ConvertSizeType;
   type?: InputType;
+  id?: string;
   value?: string | number | undefined;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -37,51 +30,39 @@ const TextInput: React.FC<TextInputProps> = ({
   name = '',
   onChange,
   value,
+  id = '',
 }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(e);
   };
-  const [labelFocused, setLabelFocused] = useState(false);
-  const [labelPosition, setLabelPosition] = useState(
-    InputLabelAnimation(labelFocused)
-  );
-  const handleBlur = () => {
-    setLabelFocused(false);
-    if (value === '') {
-      setLabelPosition(InputLabelAnimation(false));
-    }
-  };
-  useEffect(() => {
-    const hasValue = value !== '';
-    if (hasValue && !labelFocused) {
-      setLabelPosition(InputLabelAnimation(true));
-    }
-    if (!hasValue && labelFocused) {
-      setLabelPosition(InputLabelAnimation(true));
-    }
-  }, [value, labelFocused]);
 
   return (
     <div className="relative">
       <input
         className={cn(
-          'border border-gray-300 p-3 rounded-[8px] shadow-sm',
-          'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent',
+          'border py-1 border-gray-300 p-3 rounded-[8px] shadow-sm',
+          'peer transition-colors focus:border-2 focus:border-[#5569FF]',
+          `${value ? 'border-[#5569FF] border-2 transition-colors' : ''}`,
           convertWidthClass(width as keyof ConvertSizeType),
           convertHeightClass(height as keyof ConvertSizeType)
         )}
+        id={id}
         type={type}
         name={name}
         value={value}
         onChange={handleChange}
-        onFocus={() => setLabelFocused(true)}
-        onBlur={handleBlur}
       />
       <label
         className={cn(
-          'absolute bg-white px-1 text-gray-500 transition-all pointer-events-none',
-          labelPosition
+          'absolute left-2 top-3 cursor-text transition-all',
+          'peer-focus:-top-2 peer-focus:left-3 peer-focus:w-fit peer-focus:bg-white peer-focus:text-[14px] peer-focus:text-[#5569FF]',
+          `${
+            value
+              ? '-top-2 left-3 w-fit bg-white text-[14px] text-[#5569FF]'
+              : ''
+          }`
         )}
+        htmlFor={id}
       >
         {label}
       </label>

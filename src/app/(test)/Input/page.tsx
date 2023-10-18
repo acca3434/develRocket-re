@@ -24,32 +24,14 @@ export default function InputTest() {
           <Input
             type={'text'}
             label={'훈련 비용'}
-            width={'25%'}
+            width={'50%'}
+            height={'100%'}
             onChange={handleValue}
             value={value}
+            id={'user_id'}
           />
         </BoxWrap>
       </PageWrap>
     </>
   );
 }
-
-{
-  /* <form onSubmit={(e) => onsubmit(e)}>
-</form> */
-}
-
-// // const onsubmit = (e: FormEvent<HTMLFormElement>,type:InputType) => {
-//   const onsubmit = (e: FormEvent<HTMLFormElement>) => {
-//     e.preventDefault();
-
-//     const inputElements = e.currentTarget.querySelectorAll('input[type="text"]');
-
-//     const inputValues = Array.from(inputElements).map((inputElement: Element) => {
-//       if (inputElement instanceof HTMLInputElement) {
-//         return inputElement.value;
-//       }
-//       return '';
-//     });
-//     console.log('입력된 값들:', inputValues);
-//   };

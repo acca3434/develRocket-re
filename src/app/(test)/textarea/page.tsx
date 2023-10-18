@@ -1,11 +1,10 @@
 'use client';
 import Button from '@/app/_components/(icon)/Button';
-import TextInput from '@/app/_components/(icon)/Input';
 import LoginTitle from '@/app/_components/(ui)/loginTitle';
 import { LoginWrap } from '@/app/_components/(wrapper)/LoginWrap';
 import CheckBox from '@/app/_components/(icon)/CheckBox';
 import Image from 'next/image';
-import { FocusEventHandler, FormEventHandler, useState } from 'react';
+import { useState } from 'react';
 import { CheckRadio, UnCheckRadio } from '@/app/_components/(icon)/Radio';
 import { useForm } from '@/app/_utils/useForm';
 import TextArea from '@/app/_components/(icon)/TextArea';
@@ -64,11 +63,12 @@ export default function LoginMain() {
             >
               <div className={'flex flex-col gap-[20px]'}>
                 <TextArea
-                  placeholder={'아이디를 입력해주세요'}
                   value={formValues?.user_id}
+                  label={'훈련 내용을 입력하세요'}
                   rows={4}
                   cols={53}
                   name={'user_id'}
+                  id={'userId'}
                   onChange={handleTextAreaChange}
                 />
 
